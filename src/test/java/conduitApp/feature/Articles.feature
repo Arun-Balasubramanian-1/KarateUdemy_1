@@ -1,3 +1,4 @@
+@regression
 Feature: Articles CRUD
 
     Background: Define URL
