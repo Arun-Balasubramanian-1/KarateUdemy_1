@@ -6,7 +6,7 @@ import com.intuit.karate.KarateOptions;
 // To Trigger specific tests with tags using KarateOptions
 // cmd: mvn test -Dkarate.options="--tags @sanity"
 
-@KarateOptions(tags = {"@sanity", "@regression"})
+@KarateOptions(tags = {"@sanity", "@regression", "@debug"})
 class ConduitTest {
 
     @Karate.Test
