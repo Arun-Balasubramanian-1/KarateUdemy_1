@@ -9,7 +9,9 @@ class ConduitTest {
         return Karate.run().relativeTo(getClass());
     }    
 
-    
+
+    // To Trigger specific tests with the mentioned tags
+    // cmd: mvn test -Dtest=ConduitTest#testTags
     @Karate.Test
     Karate testTags() {
         return Karate.run().tags("@sanity").relativeTo(getClass());
