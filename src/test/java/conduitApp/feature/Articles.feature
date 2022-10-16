@@ -8,7 +8,8 @@ Feature: Articles CRUD
         When method Post
         Then status 200
         * def token = response.user.token
-
+    
+    @ignore
     Scenario: Create new Article
         Given header Authorization = "Token " + token
         Given path 'articles'
