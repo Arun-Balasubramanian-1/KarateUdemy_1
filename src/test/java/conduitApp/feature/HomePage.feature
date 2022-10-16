@@ -17,6 +17,6 @@ Feature: Conduit Test - GET Tags and Articles
         Given params { limit: 10, offset: 0}
         When method Get
         Then status 200
-        And match response.articles == "#[3]"
-        And match response.articlesCount == 3
+        And match response.articles == "#[10]"
+        And match response.articlesCount == 163
         
