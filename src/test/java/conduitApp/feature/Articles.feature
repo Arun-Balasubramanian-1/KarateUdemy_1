@@ -4,10 +4,10 @@ Feature: Articles CRUD
     Background: Define URL
         Given url 'https://conduit.productionready.io/api/'
         * def now = function(){ return java.lang.System.currentTimeMillis() }
-        * def tokenGeneration = call read('classpath:helpers/createToken.feature') {"email":"testuser@yopmail.com","password":"test"}
+        * def tokenGeneration = callonce read('classpath:helpers/createToken.feature') {"email":"testuser@yopmail.com","password":"test"}
         * def token = tokenGeneration.authToken
     
-    @ignore
+    @debug
     Scenario: Create new Article
         Given header Authorization = "Token " + token
         Given path 'articles'
