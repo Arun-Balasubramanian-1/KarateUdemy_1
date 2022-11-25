@@ -9,6 +9,7 @@ function fn() {
     myVarName: 'someValue'
   }
   if (env == 'dev') {
+    config.apiUrl = 'https://conduit.productionready.io/api/'
     // customize
     // e.g. config.foo = 'bar';
   } else if (env == 'e2e') {

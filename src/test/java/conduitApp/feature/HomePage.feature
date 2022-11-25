@@ -2,7 +2,7 @@
 Feature: Conduit Test - GET Tags and Articles
 
     Background: Define URL
-        Given url 'https://conduit.productionready.io/api/'
+        Given url apiUrl
 
     Scenario: GET all Tags
         Given path 'tags'
