@@ -4,7 +4,7 @@ Feature: Articles CRUD
     Background: Define URL
         Given url 'https://conduit.productionready.io/api/'
         * def now = function(){ return java.lang.System.currentTimeMillis() }
-        * def tokenGeneration = call read('classpath:helpers/createToken.feature')
+        * def tokenGeneration = call read('classpath:helpers/createToken.feature') {"email":"testuser@yopmail.com","password":"test"}
         * def token = tokenGeneration.authToken
     
     @ignore
