@@ -4,7 +4,7 @@ Feature: Articles CRUD
     Background: Define URL
         Given url apiUrl
         * def now = function(){ return java.lang.System.currentTimeMillis() }
-        * def tokenGeneration = callonce read('classpath:helpers/createToken.feature') {"email":"testuser@yopmail.com","password":"test"}
+        * def tokenGeneration = callonce read('classpath:helpers/createToken.feature') {"email":"#(userEmail)","password":"#(userPassword)"}
         * def token = tokenGeneration.authToken
     
     @debug

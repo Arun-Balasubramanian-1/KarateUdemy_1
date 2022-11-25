@@ -10,8 +10,8 @@ function fn() {
   }
   if (env == 'dev') {
     config.apiUrl = 'https://conduit.productionready.io/api/'
-    // customize
-    // e.g. config.foo = 'bar';
+    config.userEmail = 'testuser@yopmail.com'
+    config.userPassword = 'test'
   } else if (env == 'e2e') {
     // customize
   }
