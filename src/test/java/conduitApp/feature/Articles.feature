@@ -4,11 +4,8 @@ Feature: Articles CRUD
     Background: Define URL
         Given url 'https://conduit.productionready.io/api/'
         * def now = function(){ return java.lang.System.currentTimeMillis() }
-        Given path "users/login"
-        And request {"user":{"email":"testuser@yopmail.com","password":"test"}}
-        When method Post
-        Then status 200
-        * def token = response.user.token
+        * def tokenGeneration = call read('classpath:helpers/createToken.feature')
+        * def token = tokenGeneration.authToken
     
     @ignore
     Scenario: Create new Article
