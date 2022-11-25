@@ -4,12 +4,9 @@ Feature: Articles CRUD
     Background: Define URL
         Given url apiUrl
         * def now = function(){ return java.lang.System.currentTimeMillis() }
-        * def tokenGeneration = callonce read('classpath:helpers/createToken.feature') {"email":"#(userEmail)","password":"#(userPassword)"}
-        * def token = tokenGeneration.authToken
     
     @debug
     Scenario: Create new Article
-        Given header Authorization = "Token " + token
         Given path 'articles'
         * def articleTitle = "myarticle - " + now()
         And request {"article":{"tagList":["test"],"title": #(articleTitle),"description":"nothing","body":"Hello"}}
@@ -19,7 +16,6 @@ Feature: Articles CRUD
 
     @debug
     Scenario: Create and Delete Article
-        Given header Authorization = "Token " + token
         Given path 'articles'
         * def articleTitle = "myarticle - " + now()
         And request {"article":{"tagList":["test"],"title": #(articleTitle),"description":"nothing","body":"Hello"}}
@@ -31,7 +27,6 @@ Feature: Articles CRUD
         When method Get
         Then status 200
         
-        Given header Authorization = "Token " + token
         Given path 'articles', slug
         When method Delete
         Then status 204

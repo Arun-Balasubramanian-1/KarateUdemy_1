@@ -13,7 +13,7 @@ Feature: Conduit Test - GET Tags and Articles
         And match response.tags contains "welcome"
         And match response.tags contains ["welcome", "introduction"]
 
-    @sanity
+    @ignore
     Scenario: GET 10 articles
         Given path 'articles'
         Given params { limit: 10, offset: 0}

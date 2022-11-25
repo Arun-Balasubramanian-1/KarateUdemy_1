@@ -15,5 +15,8 @@ function fn() {
   } else if (env == 'e2e') {
     // customize
   }
+
+  var accessToken = karate.callSingle('classpath:helpers/createToken.feature', config).authToken
+  karate.configure('headers', { Authorization: 'Token ' + accessToken })
   return config;
 }
