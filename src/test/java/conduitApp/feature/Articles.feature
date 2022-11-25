@@ -5,7 +5,6 @@ Feature: Articles CRUD
         Given url apiUrl
         * def now = function(){ return java.lang.System.currentTimeMillis() }
     
-    @debug
     Scenario: Create new Article
         Given path 'articles'
         * def articleTitle = "myarticle - " + now()
