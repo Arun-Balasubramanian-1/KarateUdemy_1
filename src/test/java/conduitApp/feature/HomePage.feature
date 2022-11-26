@@ -59,5 +59,7 @@ Feature: Conduit Test - GET Tags and Articles
         And match each response..username == 'testuserkarate'
         #And match each response..username == 'arun'
 
+        And match each response..username == "#string"
+        And match each response..bio == "##string"
         
         
