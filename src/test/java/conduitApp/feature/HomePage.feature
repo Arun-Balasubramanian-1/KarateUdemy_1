@@ -29,7 +29,6 @@ Feature: Conduit Test - GET Tags and Articles
         And match response.tags contains "welcome"
         And match response.tags contains ["welcome", "introduction"]
 
-    @sanity
     Scenario: GET 10 articles
         Given path 'articles'
         Given params { limit: 10, offset: 0}
@@ -62,4 +61,31 @@ Feature: Conduit Test - GET Tags and Articles
         And match each response..username == "#string"
         And match each response..bio == "##string"
         
-        
+    @sanity
+    Scenario: GET articles
+        * def timeValidator = read('classpath:helpers/timeValidator.js')
+        Given path 'articles'
+        When method Get
+        Then status 200
+        And print response
+        And match each response.articles ==
+        """
+            {
+                "slug": "#string",
+                "title": "#string",
+                "description": "#string",
+                "body": "#string",
+                "tagList": "#array",
+                "createdAt": "#? timeValidator(_)",
+                "updatedAt": "#? timeValidator(_)",
+                "favorited": "#boolean",
+                "favoritesCount": "#number",
+                "author": {
+                    "username": "#string",
+                    "bio": "##string",
+                    "image": "#string",
+                    "following": "#boolean"
+                }
+            }
+
+        """
