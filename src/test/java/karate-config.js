@@ -11,6 +11,7 @@ function fn() {
   if (env == 'dev') {
     config.apiUrl = 'https://conduit.productionready.io/api/'
     config.userEmail = 'testuser@yopmail.com'
+    config.userName = 'testuserkarate'
     config.userPassword = 'test'
   } else if (env == 'e2e') {
     // customize
