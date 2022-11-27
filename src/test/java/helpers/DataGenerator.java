@@ -2,6 +2,8 @@ package helpers;
 
 import com.github.javafaker.Faker;
 
+import net.minidev.json.JSONObject;
+
 public class DataGenerator {
 
     public static String generateRandomEmail() {
@@ -22,5 +24,13 @@ public class DataGenerator {
             sb.append(AlphaNumericString.charAt(index));
         }
         return sb.toString();
+    }
+
+    public static JSONObject getArticlesBody() {
+        JSONObject json = new JSONObject();
+        json.put("title", getAlphaNumericString(10));
+        json.put("description", getAlphaNumericString(40));
+        json.put("body", getAlphaNumericString(100));
+        return json;
     }
 }
