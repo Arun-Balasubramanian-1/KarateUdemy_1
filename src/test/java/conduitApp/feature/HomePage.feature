@@ -61,13 +61,12 @@ Feature: Conduit Test - GET Tags and Articles
         And match each response..username == "#string"
         And match each response..bio == "##string"
         
-    @sanity
+    @ignore
     Scenario: GET articles
         * def timeValidator = read('classpath:helpers/timeValidator.js')
         Given path 'articles'
         When method Get
         Then status 200
-        And print response
         And match each response.articles ==
         """
             {
