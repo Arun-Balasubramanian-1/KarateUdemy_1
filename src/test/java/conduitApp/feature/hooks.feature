@@ -2,7 +2,7 @@
 Feature: Hooks testing
 
     Background:
-        * def dummy = call read('classpath:helpers/Dummy.feature')
+        * def dummy = callonce read('classpath:helpers/Dummy.feature')
         * print dummy.name
 
     Scenario: First scenario
