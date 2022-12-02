@@ -17,6 +17,8 @@ function fn() {
     // customize
   }
 
+  karate.callSingle('classpath:helpers/Dummy2.feature')
+
   var accessToken = karate.callSingle('classpath:helpers/createToken.feature', config).authToken
   karate.configure('headers', { Authorization: 'Token ' + accessToken })
   return config;
