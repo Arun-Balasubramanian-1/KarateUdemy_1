@@ -17,8 +17,8 @@ function fn() {
     // customize
   }
 
-  karate.callSingle('classpath:helpers/Dummy2.feature')
-  karate.call('classpath:helpers/Dummy3.feature')
+  // karate.callSingle('classpath:helpers/Dummy2.feature')
+  // karate.call('classpath:helpers/Dummy3.feature')
 
 
   var accessToken = karate.callSingle('classpath:helpers/createToken.feature', config).authToken
