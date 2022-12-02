@@ -11,7 +11,6 @@ Feature: Articles CRUD
         * set articlesRequestBody.article.description = newArticle.description;
         * set articlesRequestBody.article.body = newArticle.body;
     
-    @sanity
     Scenario: Create new Article
         Given path 'articles'
         And request articlesRequestBody
