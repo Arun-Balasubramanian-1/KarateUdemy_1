@@ -107,11 +107,19 @@ Feature: Conduit Test - GET Tags and Articles
         * print "End favorite count " + response.article.favoritesCount
         And assert result > 0
         
-    @sanity
     Scenario: Test Retry
         * configure retry = { count: 10, interval: 5000 }
         Given path 'articles'
         And retry until response.articles[0].favoritesCount > 0
         And method Get
+        Then status 200
+        And assert response.articles[0].favoritesCount > 0
+    
+    @sanity
+    Scenario: Test Sleep
+        * def sleep = function(pause){ java.lang.Thread.sleep(pause) }
+        Given path 'articles'
+        And method Get
+        * eval sleep(30000)
         Then status 200
         And assert response.articles[0].favoritesCount > 0
