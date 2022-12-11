@@ -88,3 +88,24 @@ Feature: Conduit Test - GET Tags and Articles
             }
 
         """
+
+    
+    @sanity
+    Scenario: Conditional Logic
+        Given path 'articles'
+        And method Get
+        Then status 200
+        * def article = response.articles[0]
+        * def favoritesCount = article.favoritesCount
+        * print "Initial favorite count " + favoritesCount
+
+        # * if (favoritesCount < 1 ) { karate.call('classpath:helpers/favorite.feature', article)}
+
+        * def result = (favoritesCount < 1) ? karate.call('classpath:helpers/favorite.feature', article).resultFavoriteCount : favoritesCount
+
+        Given path 'articles', article.slug 
+        And method Get
+        Then status 200
+        * print "End favorite count " + response.article.favoritesCount
+        And assert result > 0
+        

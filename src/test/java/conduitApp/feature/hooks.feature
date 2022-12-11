@@ -1,4 +1,4 @@
-@sanity
+
 Feature: Hooks testing
 
     Background:
