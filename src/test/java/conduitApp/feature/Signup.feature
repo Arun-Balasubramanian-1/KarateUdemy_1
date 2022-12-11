@@ -1,3 +1,4 @@
+@parallel=false
 Feature: Signup
 
     Background:
@@ -50,7 +51,6 @@ Feature: Signup
                 }
             }
         """
-    
     Scenario Outline:  Sign up data driven testing
         * def max_string = dataGenerator.getAlphaNumericString(1000);
         * def min_string = dataGenerator.getAlphaNumericString(3);

@@ -37,25 +37,25 @@ Feature: Conduit Test - GET Tags and Articles
         And match response.articles == "#[10]"
         And print response
 
-        And match response.articlesCount == 215
+        #And match response.articlesCount == 215
         #And match response.articlesCount == 300
 
-        And match response.articlesCount != 500
+        #And match response.articlesCount != 500
         #And match response.articlesCount != 215
 
         And match response == { "articles": "#array", "articlesCount": "#number"}
         #And match response == { "articles": "#array", "articlesCount": "#string"}
 
-        And match response.articles[0].createdAt contains "2022"
+        #And match response.articles[0].createdAt contains "2022"
         #And match response.articles[0].createdAt contains "1997"
 
-        And match response.articles[*].favoritesCount contains 0
+        #And match response.articles[*].favoritesCount contains 0
         #And match response.articles[*].favoritesCount contains 10
 
         And match response..bio contains null
         #And match response..bio contains "SDET"
 
-        And match each response..username == 'testuserkarate'
+        #And match each response..username == 'testuserkarate'
         #And match each response..username == 'arun'
 
         And match each response..username == "#string"

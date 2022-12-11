@@ -16,7 +16,7 @@ class TestRunner {
 
     @Test
     void testAll() {
-        Results results = Runner.path("classpath:conduitApp").parallel(1);
+        Results results = Runner.path("classpath:conduitApp").parallel(4);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
