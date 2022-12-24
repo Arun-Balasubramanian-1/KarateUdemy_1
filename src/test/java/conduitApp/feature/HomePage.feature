@@ -115,7 +115,6 @@ Feature: Conduit Test - GET Tags and Articles
         Then status 200
         And assert response.articles[0].favoritesCount > 0
     
-    @sanity
     Scenario: Test Sleep
         * def sleep = function(pause){ java.lang.Thread.sleep(pause) }
         Given path 'articles'
